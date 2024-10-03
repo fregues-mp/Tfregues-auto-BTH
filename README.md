@@ -8,14 +8,15 @@ Este é um macro para o jogo *Bit Heroes*, desenvolvido pelo fregues com o objet
 
 - **data**: Contém as imagens e recursos necessários para o funcionamento do macro.
 - **logs**: Armazena os registros das atividades realizadas pelo macro, permitindo monitorar o desempenho e identificar possíveis problemas.
-- **level0.py**: Contém funções comuns usadas por outros arquivos do macro, incluindo:
+- **[level0.py](https://github.com/rafaelitoto895/Tfregues-auto-BTH/blob/main/level0.py)**: Contém funções comuns usadas por outros arquivos do macro, incluindo:
+  - `stop_macro()`: Ativado pela GUI, interrompe o macro.
   - `verificar_interrupcao()`: Verifica se a tecla 'ESC' foi pressionada para interromper o macro.
   - `detectar_aspecto_na_tela(imagem_modelo, threshold=0.8)`: Detecta uma imagem específica na tela.
   - `encontrar_imagem_e_clicar(imagem, descricao)`: Encontra uma imagem na tela e clica nela.
   - `macro_leaving_mission()`: Executa uma sequência para sair de uma missão.
   - `verificar_reconectar(imagem_condicao, descricao)`: Verifica uma condição especial na tela. Se a imagem for encontrada, clica nela e reinicia o processo.
-- **level1.py**: Implementa a lógica principal para a execução do macro, focando nas missões.
-- **main.py**: O ponto de entrada do programa, onde a execução do macro é iniciada.
+- **[level1.py](https://github.com/rafaelitoto895/Tfregues-auto-BTH/blob/main/level1.py)**: Implementa a lógica principal para a execução do macro, focando nas missões.
+- **[main.py](https://github.com/rafaelitoto895/Tfregues-auto-BTH/blob/main/main.py)**: O ponto de entrada do programa, onde a execução do macro é iniciada.
 
 Futuramente, planejamos adicionar os macros `level2`, `level3`, `level4`, `level5`, `level6`, e `level7`.
 
