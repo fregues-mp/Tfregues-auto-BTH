@@ -1,4 +1,4 @@
-# _,-,_,-,_,-,_,-,_,-,_,-,_ MACRO DEFALT RULES _,-,_,-,_,-,_,-,_,-,_,-,_ #
+# _,-,_,-,_,-,_,-,_,-,_,-,_ MACRO DEFAULT RULES _,-,_,-,_,-,_,-,_,-,_,-,_ #
 import pyautogui
 import time
 import keyboard
@@ -6,18 +6,19 @@ import cv2
 import numpy as np
 
 def verificar_interrupcao():
+    """Verifica se a tecla 'esc' foi pressionada."""
     if keyboard.is_pressed('esc'):
         print("Macro interrompida pelo usuário.")
         return True
     return False
 
 def detectar_aspecto_na_tela(imagem_modelo, threshold=0.8):
+    """Detecta a presença de uma imagem modelo na tela."""
     screenshot = pyautogui.screenshot()
     screenshot = np.array(screenshot)
     screenshot = cv2.cvtColor(screenshot, cv2.COLOR_RGB2BGR)
 
     modelo = cv2.imread(imagem_modelo, cv2.IMREAD_COLOR)
-
     if modelo is None:
         print(f"Erro: a imagem modelo não pôde ser carregada de {imagem_modelo}. Verifique o caminho.")
         return None, None
@@ -33,6 +34,7 @@ def detectar_aspecto_na_tela(imagem_modelo, threshold=0.8):
     return None, None
 
 def encontrar_imagem_e_clicar(imagem, descricao):
+    """Encontra uma imagem na tela e clica nela."""
     posicao, tamanho = detectar_aspecto_na_tela(imagem)
     if posicao:
         centro_x = posicao[0] + tamanho[1] // 2
@@ -42,8 +44,9 @@ def encontrar_imagem_e_clicar(imagem, descricao):
         print(f"'{descricao}' encontrada e clicada.")
         return True
     return False
-    
+
 def verificar_reconectar(imagem_condicao, descricao):
+    """Verifica a condição de reconexão e clica se a imagem for encontrada."""
     posicao, tamanho = detectar_aspecto_na_tela(imagem_condicao)
     if posicao:
         centro_x = posicao[0] + tamanho[1] // 2
@@ -54,8 +57,8 @@ def verificar_reconectar(imagem_condicao, descricao):
         return True
     return False
 
-
 def macro_leaving_mission():
+    """Executa a macro para deixar a missão."""
     print("Executando macro LEAVING MISSION...")
     for _ in range(4):
         pyautogui.press('esc')
