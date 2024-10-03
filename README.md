@@ -61,6 +61,18 @@ Ainda em desenvolvimento, interface gráfica (GUI) usando a biblioteca Pygame.
 	pyinstaller --onefile --noconsole --icon=icon.ico --add-data "data;data" main.py
 	```
 	
+## Dicas e Soluções de Problemas
+
+- **Problema: O macro não encontra a imagem.**
+  - Certifique-se de que a imagem está na resolução correta e no formato suportado.
+  - Verifique se o arquivo de imagem está no diretório correto (`data\level\level$`).
+  
+- **Problema: O macro trava ou não responde.**
+  - Pressione a tecla 'ESC' no console para interromper o macro. 
+  - Verifique se a resolução da tela está configurada para 800x480.
+
+- **Problema: O macro não está executando as missões corretamente.**
+  - Tente trocar a imagem `m2` pela fase que deseja jogar, conforme indicado na seção de considerações.
 
 ## Contribuições
 
