@@ -1,17 +1,26 @@
 # Tfregues-auto-BTH
 
-Este é um macro para o jogo *Bit Heroes*, desenvolvido com o objetivo de facilitar o jogo ao máximo. Ainda estou trabalhando nele e muitas mudanças podem ser feitas no futuro. Atualmente, o macro utiliza um método de detecção de imagens para realizar o *afkfarm*, tornando-o útil para deixar rodando enquanto você dorme.
+Este é um macro para o jogo *Bit Heroes*, desenvolvido pelo fregues com o objetivo de facilitar o jogo ao máximo. Ainda estou trabalhando nele e muitas mudanças podem ser feitas no futuro. Atualmente, o macro utiliza um método de detecção de imagens para realizar o *afkfarm*, tornando-o útil para deixar rodando enquanto você dorme.
 
-No momento, o macro está configurado apenas para missões, mas estou desenvolvendo uma interface gráfica (GUI) usando a biblioteca Pygame. No futuro, planejo adicionar funcionalidades para Missões, PvP, Boss, Raid, Expedição, Coliseu e Pesca.
+
 
 ## Arquivos
 
-- **level0.py**: Contém funções base usadas por outros arquivos do macro.
+- **level0.py**: Contém funções comuns usadas por outros arquivos do macro.
 - **level1.py**: Implementa a lógica principal para a execução do macro, focando nas missões.
 - **main.py**: O ponto de entrada do programa, onde a execução do macro é iniciada.
 
 Futuramente, planejamos adicionar os macros `level2`, `level3`, `level4`, `level5`, e `level6`.
 
+## Considerações
+
+O arquivo `level1.py`, responsável por automatizar as missões, ainda não está 100% completo. Na seleção de fases, não consegui incluir todas as opções. Enquanto isso, você pode ir até `data\level\level1` e trocar a imagem `m2` pela fase que deseja jogar. Recomendo o uso do Lightshot para capturar as imagens.
+exemplo:
+![imagem](https://github.com/rafaelitoto895/Tfregues-auto-BTH/data/level/level1/m2.png).
+
+No momento, o macro está configurado apenas para missões, mas estou desenvolvendo uma interface gráfica (GUI) usando a biblioteca Pygame. No futuro, planejo adicionar funcionalidades para Missões, PvP, Boss, Raid, Expedição, Coliseu e Pesca.
+
+ 
 ## Executando
 
 1. Clone o repositório:
