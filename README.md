@@ -6,7 +6,7 @@ No momento, o macro está configurado apenas para missões, mas estou desenvolve
 
 ## Arquivos
 
-- **level0.py**: Contém funções comuns usadas por outros arquivos do macro.
+- **level0.py**: Contém funções base usadas por outros arquivos do macro.
 - **level1.py**: Implementa a lógica principal para a execução do macro, focando nas missões.
 - **main.py**: O ponto de entrada do programa, onde a execução do macro é iniciada.
 
