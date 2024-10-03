@@ -53,7 +53,7 @@ def draw_button(text, rect, color, alpha):
 # Função para iniciar o level1
 def run_level1():
     global should_stop
-    level1.level1()
+    level1.run_level1()
 
 # Loop principal
 def main():
