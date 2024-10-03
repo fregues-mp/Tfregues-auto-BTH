@@ -1,3 +1,4 @@
+# _,-,_,-,_,-,_,-,_,-,_,-,_ MACRO DEFALT RULES _,-,_,-,_,-,_,-,_,-,_,-,_ #
 import pyautogui
 import time
 import keyboard
