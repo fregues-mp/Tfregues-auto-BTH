@@ -64,7 +64,7 @@ Ainda em desenvolvimento, interface gráfica (GUI) usando a biblioteca Pygame.
 
 ## Contribuições
 
-fregues
+![marca_small](https://github.com/user-attachments/assets/3a29afa3-0b39-43ee-9760-cca03d978e62)
 
 -------
 
