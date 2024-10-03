@@ -3,6 +3,7 @@ import level0
 import level1
 import pygame
 import sys
+import threading
 
 # Inicializa o Pygame
 pygame.init()
@@ -21,8 +22,11 @@ pygame.display.set_caption("Tfregues Macro_BTH")
 # Fonte para os textos
 font = pygame.font.Font(None, 36)
 
+# Variável de controle para parar o nível
+should_stop = False
+
 # Função para desenhar um botão com efeito de transparência
-def draw_button(text, rect, color, hover_color, alpha):
+def draw_button(text, rect, color, alpha):
     mouse = pygame.mouse.get_pos()
     is_hover = rect.collidepoint(mouse)
 
@@ -46,11 +50,19 @@ def draw_button(text, rect, color, hover_color, alpha):
 
     return alpha
 
+# Função para iniciar o level1
+def run_level1():
+    global should_stop
+    level1.level1()
+
 # Loop principal
 def main():
-    run_alpha = 0  # Opacidade inicial do botão Start
-    credits_alpha = 0  # Opacidade inicial do botão Stop
-    current_screen = "menu"  # Tela inicial
+    global should_stop
+    start_alpha = 0
+    stop_alpha = 0
+    run_alpha = 0
+    credits_alpha = 0
+    current_screen = "menu"
 
     while True:
         for event in pygame.event.get():
@@ -58,9 +70,15 @@ def main():
                 pygame.quit()
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
-                if run_button.collidepoint(pygame.mouse.get_pos()):
-                    current_screen = "game"  # Vai para outra tela ao clicar em "Start"
-                    level1.level1()  # Chama o script do level1
+                if run_button.collidepoint(pygame.mouse.get_pos()) and current_screen == "menu":
+                    current_screen = "game"
+                elif credits_button.collidepoint(pygame.mouse.get_pos()) and current_screen == "menu":
+                    pass  # Função de créditos não implementada
+                elif start_button.collidepoint(pygame.mouse.get_pos()) and current_screen == "game":
+                    should_stop = False  # Reseta a variável
+                    threading.Thread(target=run_level1).start()  # Inicia level1 em uma nova thread
+                elif stop_button.collidepoint(pygame.mouse.get_pos()) and current_screen == "game":
+                    should_stop = True  # Interrompe o processo
 
         screen.fill(BLACK)
 
@@ -69,19 +87,17 @@ def main():
             run_button = pygame.Rect((WIDTH - button_width) // 2, 80, button_width, button_height)
             credits_button = pygame.Rect((WIDTH - button_width) // 2, 150, button_width, button_height)
 
-            run_alpha = draw_button("Run", run_button, RED, GREY, run_alpha)
-            credits_alpha = draw_button("Credits", credits_button, RED, GREY, credits_alpha)
+            run_alpha = draw_button("Run", run_button, RED, run_alpha)
+            credits_alpha = draw_button("Credits", credits_button, RED, credits_alpha)
 
         elif current_screen == "game":
             screen.fill(BLACK)  # Fundo preto
+            button_width, button_height = 140, 50
+            start_button = pygame.Rect((WIDTH - button_width) // 2, 80, button_width, button_height)
+            stop_button = pygame.Rect((WIDTH - button_width) // 2, 150, button_width, button_height)
 
-            # Botões na mesma posição que o anterior
-            button1 = pygame.Rect((WIDTH - button_width) // 2, 80, button_width, button_height)
-            button2 = pygame.Rect((WIDTH - button_width) // 2, 150, button_width, button_height)
-
-            # Desenha os novos botões com efeito de transparência
-            run_alpha = draw_button("Start", button1, RED, GREY, run_alpha)
-            credits_alpha = draw_button("Stop", button2, RED, GREY, credits_alpha)
+            start_alpha = draw_button("Start", start_button, RED, start_alpha)
+            stop_alpha = draw_button("Stop", stop_button, RED, stop_alpha)
 
         pygame.display.flip()
 
