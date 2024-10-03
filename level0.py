@@ -1,89 +1,63 @@
-# _,-,_,-,_,-,_,-,_,-,_,-,_ GUI||MAIN _,-,_,-,_,-,_,-,_,-,_,-,_ #
-import level0
-import level1
-import pygame
-import sys
+# _,-,_,-,_,-,_,-,_,-,_,-,_ MACRO DEFALT RULES _,-,_,-,_,-,_,-,_,-,_,-,_ #
+import pyautogui
+import time
+import keyboard
+import cv2
+import numpy as np
 
-# Inicializa o Pygame
-pygame.init()
+def verificar_interrupcao():
+    if keyboard.is_pressed('esc'):
+        print("Macro interrompida pelo usuário.")
+        return True
+    return False
 
-# Definindo cores
-BLACK = (0, 0, 0)
-WHITE = (255, 255, 255)
-GREY = (38, 38, 38)
-RED = (255, 0, 0)
+def detectar_aspecto_na_tela(imagem_modelo, threshold=0.8):
+    screenshot = pyautogui.screenshot()
+    screenshot = np.array(screenshot)
+    screenshot = cv2.cvtColor(screenshot, cv2.COLOR_RGB2BGR)
 
-# Configurações da tela
-WIDTH, HEIGHT = 420, 280
-screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Tfregues Macro_BTH")
+    modelo = cv2.imread(imagem_modelo, cv2.IMREAD_COLOR)
 
-# Fonte para os textos
-font = pygame.font.Font(None, 36)
+    if modelo is None:
+        print(f"Erro: a imagem modelo não pôde ser carregada de {imagem_modelo}. Verifique o caminho.")
+        return None, None
 
-# Função para desenhar um botão com efeito de transparência
-def draw_button(text, rect, color, hover_color, alpha):
-    mouse = pygame.mouse.get_pos()
-    is_hover = rect.collidepoint(mouse)
+    if len(modelo.shape) == 3 and modelo.shape[2] == 4:
+        modelo = cv2.cvtColor(modelo, cv2.COLOR_BGRA2BGR)
 
-    # Atualiza a opacidade do botão
-    if is_hover:
-        alpha = min(255, alpha + 5)  # Aumenta a opacidade
-    else:
-        alpha = max(0, alpha - 5)     # Diminui a opacidade
+    resultado = cv2.matchTemplate(screenshot, modelo, cv2.TM_CCOEFF_NORMED)
+    min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(resultado)
 
-    # Cria uma superfície para o botão com o fundo transparente
-    button_surface = pygame.Surface(rect.size, pygame.SRCALPHA)
-    button_surface.fill((color[0], color[1], color[2], alpha))  # Adiciona a opacidade
+    if max_val >= threshold:
+        return max_loc, modelo.shape[:2]
+    return None, None
 
-    # Desenha o botão na tela
-    screen.blit(button_surface, rect.topleft)
+def encontrar_imagem_e_clicar(imagem, descricao):
+    posicao, tamanho = detectar_aspecto_na_tela(imagem)
+    if posicao:
+        centro_x = posicao[0] + tamanho[1] // 2
+        centro_y = posicao[1] + tamanho[0] // 2
+        pyautogui.moveTo(centro_x, centro_y)
+        pyautogui.click()
+        print(f"'{descricao}' encontrada e clicada.")
+        return True
+    return False
+    
+def verificar_reconectar(imagem_condicao, descricao):
+    posicao, tamanho = detectar_aspecto_na_tela(imagem_condicao)
+    if posicao:
+        centro_x = posicao[0] + tamanho[1] // 2
+        centro_y = posicao[1] + tamanho[0] // 2
+        pyautogui.moveTo(centro_x, centro_y)
+        pyautogui.click()
+        print(f"'{descricao}' encontrada e clicada. Reiniciando o processo.")
+        return True
+    return False
 
-    # Texto do botão
-    text_surface = font.render(text, True, WHITE)
-    text_rect = text_surface.get_rect(center=rect.center)
-    screen.blit(text_surface, text_rect)
 
-    return alpha
-
-# Loop principal
-def main():
-    run_alpha = 0  # Opacidade inicial do botão Start
-    credits_alpha = 0  # Opacidade inicial do botão Stop
-    current_screen = "menu"  # Tela inicial
-
-    while True:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                sys.exit()
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                if run_button.collidepoint(pygame.mouse.get_pos()):
-                    current_screen = "game"  # Vai para outra tela ao clicar em "Start"
-                    level1.level1()  # Chama o script do level1
-
-        screen.fill(BLACK)
-
-        if current_screen == "menu":
-            button_width, button_height = 140, 50
-            run_button = pygame.Rect((WIDTH - button_width) // 2, 80, button_width, button_height)
-            credits_button = pygame.Rect((WIDTH - button_width) // 2, 150, button_width, button_height)
-
-            run_alpha = draw_button("Run", run_button, RED, GREY, run_alpha)
-            credits_alpha = draw_button("Credits", credits_button, RED, GREY, credits_alpha)
-
-        elif current_screen == "game":
-            screen.fill(BLACK)  # Fundo preto
-
-            # Botões na mesma posição que o anterior
-            button1 = pygame.Rect((WIDTH - button_width) // 2, 80, button_width, button_height)
-            button2 = pygame.Rect((WIDTH - button_width) // 2, 150, button_width, button_height)
-
-            # Desenha os novos botões com efeito de transparência
-            run_alpha = draw_button("Start", button1, RED, GREY, run_alpha)
-            credits_alpha = draw_button("Stop", button2, RED, GREY, credits_alpha)
-
-        pygame.display.flip()
-
-if __name__ == "__main__":
-    main()
+def macro_leaving_mission():
+    print("Executando macro LEAVING MISSION...")
+    for _ in range(4):
+        pyautogui.press('esc')
+        time.sleep(1.5)
+    print("Macro LEAVING MISSION concluída.")
