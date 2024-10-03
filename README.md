@@ -1,6 +1,6 @@
 # Tfregues-auto-BTH
 
-Este é um macro para o jogo *Bit Heroes*, desenvolvido pelo fregues com o objetivo de facilitar o jogo ao máximo. Ainda estou trabalhando nele e muitas mudanças podem ser feitas no futuro. Atualmente, o macro utiliza um método de detecção de imagens para realizar o *afkfarm*, tornando-o útil para deixar rodando enquanto você dorme.
+Este é um macro para o jogo *Bit Heroes*, desenvolvido pelo fregues com o objetivo de facilitar o jogo ao máximo. Ainda estou trabalhando nele e muitas mudanças podem ser feitas no futuro. Atualmente, o macro utiliza um método de detecção de imagens para realizar o *AFKFARM*, tornando-o útil para deixar rodando enquanto você dorme.
 
 
 
@@ -21,6 +21,10 @@ Futuramente, planejamos adicionar os macros `level2`, `level3`, `level4`, `level
 
 ## Considerações
 
+Atualmente o macro só foi testado na resolução 800x480, então talvez não funcione corretamente com as demais resoluções.
+
+Apenas suportado no Idioma PT BR, futuramente irei adicionar suporte para o Inglês. 
+
 O arquivo `level1.py`, responsável por automatizar as missões, ainda não está 100% completo. Na seleção de fases, não consegui incluir todas as opções. Enquanto isso, você pode ir até `data\level\level1` e trocar a imagem `m2` pela fase que deseja jogar. Recomendo o uso do Lightshot para capturar as imagens.
 
 Exemplo:
@@ -29,10 +33,7 @@ Exemplo:
 
 No momento, o macro está configurado apenas para missões.
 
-Ainda estou desenvolvendo uma interface gráfica (GUI) usando a biblioteca Pygame.
-
-No futuro, irei adicionar as funcionalidades para Missões, PvP, Boss, Raid, Expedição, Coliseu e Pesca.
-
+Ainda em desenvolvimento, interface gráfica (GUI) usando a biblioteca Pygame.
  
 ## Executando
 
