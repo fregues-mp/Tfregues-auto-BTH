@@ -16,7 +16,7 @@ Futuramente, planejamos adicionar os macros `level2`, `level3`, `level4`, `level
 
 O arquivo `level1.py`, responsável por automatizar as missões, ainda não está 100% completo. Na seleção de fases, não consegui incluir todas as opções. Enquanto isso, você pode ir até `data\level\level1` e trocar a imagem `m2` pela fase que deseja jogar. Recomendo o uso do Lightshot para capturar as imagens.
 exemplo:
-![imagem](https://github.com/rafaelitoto895/Tfregues-auto-BTH/data/level/level1/m2.png).
+![imagem](https://github.com/rafaelitoto895/Tfregues-auto-BTH/tree/main/data/level/level1/m2.png).
 
 No momento, o macro está configurado apenas para missões, mas estou desenvolvendo uma interface gráfica (GUI) usando a biblioteca Pygame. No futuro, planejo adicionar funcionalidades para Missões, PvP, Boss, Raid, Expedição, Coliseu e Pesca.
 
