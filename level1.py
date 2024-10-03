@@ -24,8 +24,9 @@ def log(msg):
     print(msg)
     log_file.write(msg + '\n')
     
-def level1(should_stop):
-    while not should_stop:
+def run_level1():
+    global should_stop
+    level1.level1(should_stop)
         if level0.verificar_interrupcao():
             break
 
