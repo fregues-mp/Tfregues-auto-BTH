@@ -31,55 +31,52 @@ def level1():
 
         log("Iniciando sequência...")
 
+        # Encontrar Imagem 1
         while not level0.encontrar_imagem_e_clicar(r'data\level\level1\m1.png', 'Imagem 1'):
             if level0.verificar_reconectar(r'data\level\level1\server_down.png', 'Server Down'):
-                log("'Server Down' encontrada. Reiniciando o ciclo sem parar.")
-                break  # Reinicia o ciclo ao encontrar a condição de server down
+                log("'Server Down' encontrada. Reiniciando o ciclo.")
+                break  # Reiniciar o ciclo
             if level0.verificar_interrupcao():
                 return
             log("Imagem 1 não encontrada. Tentando novamente...")
             time.sleep(1)
-        else:
-            continue  # Continua o ciclo se a imagem for encontrada
 
+        # Encontrar Imagem 2
         while not level0.encontrar_imagem_e_clicar(r'data\level\level1\m2.png', 'Imagem 2'):
             if level0.verificar_reconectar(r'data\level\level1\server_down.png', 'Server Down'):
-                log("'Server Down' encontrada. Reiniciando o ciclo sem parar.")
+                log("'Server Down' encontrada. Reiniciando o ciclo.")
                 break
             if level0.verificar_interrupcao():
                 return
             log("Imagem 2 não encontrada. Tentando novamente...")
             time.sleep(1)
-        else:
-            continue
 
+        # Encontrar Imagem 3
         while not level0.encontrar_imagem_e_clicar(r'data\level\level1\m3.png', 'Imagem 3'):
             if level0.verificar_reconectar(r'data\level\level1\server_down.png', 'Server Down'):
-                log("'Server Down' encontrada. Reiniciando o ciclo sem parar.")
+                log("'Server Down' encontrada. Reiniciando o ciclo.")
                 break
             if level0.verificar_interrupcao():
                 return
             log("Imagem 3 não encontrada. Tentando novamente...")
             time.sleep(1)
-        else:
-            continue
 
+        # Encontrar Imagem 4a
         log("Procurando por Imagem 4a...")
         while not level0.encontrar_imagem_e_clicar(r'data\level\level1\m4a.png', 'Imagem 4a'):
             if level0.verificar_reconectar(r'data\level\level1\server_down.png', 'Server Down'):
-                log("'Server Down' encontrada. Reiniciando o ciclo sem parar.")
+                log("'Server Down' encontrada. Reiniciando o ciclo.")
                 break
             if level0.verificar_interrupcao():
                 return
             log("Imagem 4a não encontrada. Tentando novamente...")
             time.sleep(1)
-        else:
-            continue
 
+        # Encontrar Imagem 4b
         log("Procurando por Imagem 4b...")
         for _ in range(15):
             if level0.verificar_reconectar(r'data\level\level1\server_down.png', 'Server Down'):
-                log("'Server Down' encontrada. Reiniciando o ciclo sem parar.")
+                log("'Server Down' encontrada. Reiniciando o ciclo.")
                 break
             if level0.verificar_interrupcao():
                 return
@@ -87,30 +84,27 @@ def level1():
                 log("Imagem 4b encontrada. Executando macro LEAVING MISSION.")
                 level0.macro_leaving_mission()
                 return
-        else:
-            continue
 
+        # Encontrar Imagem 5a e 5b
         while True:
             if level0.verificar_reconectar(r'data\level\level1\server_down.png', 'Server Down'):
-                log("'Server Down' encontrada. Reiniciando o ciclo sem parar.")
+                log("'Server Down' encontrada. Reiniciando o ciclo.")
                 break
             log("Procurando por Imagem 5a...")
             while not level0.encontrar_imagem_e_clicar(r'data\level\level1\m5a.png', 'Imagem 5a'):
                 if level0.verificar_reconectar(r'data\level\level1\server_down.png', 'Server Down'):
-                    log("'Server Down' encontrada. Reiniciando o ciclo sem parar.")
+                    log("'Server Down' encontrada. Reiniciando o ciclo.")
                     break
                 if level0.verificar_interrupcao():
                     return
                 log("Imagem 5a não encontrada. Tentando novamente...")
                 time.sleep(1)
-            else:
-                continue
 
             log("Procurando por Imagem 5b...")
             encontrada_5b = False
             for _ in range(30):
                 if level0.verificar_reconectar(r'data\level\level1\server_down.png', 'Server Down'):
-                    log("'Server Down' encontrada. Reiniciando o ciclo sem parar.")
+                    log("'Server Down' encontrada. Reiniciando o ciclo.")
                     break
                 if level0.verificar_interrupcao():
                     return
@@ -130,3 +124,4 @@ if __name__ == "__main__":
         level1()
     finally:
         log_file.close()
+
