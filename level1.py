@@ -21,12 +21,10 @@ caminho_log = os.path.join(log_dir, nome_arquivo_log)
 log_file = open(caminho_log, 'a')
 
 def log(msg):
-    """Escreve mensagens no log e na saída padrão."""
     print(msg)
     log_file.write(msg + '\n')
 
 def run_level1():
-    """Executa a sequência do nível 1."""
     global should_stop
     if level0.verificar_interrupcao():
         return
