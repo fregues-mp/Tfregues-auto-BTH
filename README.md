@@ -14,10 +14,10 @@ Este é um macro para o jogo *Bit Heroes*, desenvolvido pelo fregues com o objet
   - `encontrar_imagem_e_clicar(imagem, descricao)`: Encontra uma imagem na tela e clica nela.
   - `macro_leaving_mission()`: Executa uma sequência para sair de uma missão.
   - `verificar_reconectar(imagem_condicao, descricao)`: Verifica uma condição especial na tela. Se a imagem for encontrada, clica nela e reinicia o processo.
-- **level1.py**: Implementa a lógica principal para a execução do macro, focando nas missões. Ele utiliza as funções do `level0.py` para realizar detecções e ações automatizadas.
+- **level1.py**: Implementa a lógica principal para a execução do macro, focando nas missões.
 - **main.py**: O ponto de entrada do programa, onde a execução do macro é iniciada.
 
-Futuramente, planejamos adicionar os macros `level2`, `level3`, `level4`, `level5`, e `level6`.
+Futuramente, planejamos adicionar os macros `level2`, `level3`, `level4`, `level5`, `level6`, e `level7`.
 
 ## Considerações
 
