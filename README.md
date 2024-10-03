@@ -85,4 +85,4 @@ Sinta-se à vontade para contribuir! Abra um issue ou envie um pull request.
 
 ## Licença
 
-Este projeto está licenciado sob a [MIT License.](https://github.com/rafaelitoto895/Tfregues-auto-BTH/blob/main/LICENSE.txt)
+Este projeto está licenciado sob a [MIT License](https://github.com/rafaelitoto895/Tfregues-auto-BTH/blob/main/LICENSE.txt).
