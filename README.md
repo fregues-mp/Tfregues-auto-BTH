@@ -8,8 +8,13 @@ Este é um macro para o jogo *Bit Heroes*, desenvolvido pelo fregues com o objet
 
 - **data**: Contém as imagens e recursos necessários para o funcionamento do macro.
 - **logs**: Armazena os registros das atividades realizadas pelo macro, permitindo monitorar o desempenho e identificar possíveis problemas.
-- **level0.py**: Contém funções comuns usadas por outros arquivos do macro.
-- **level1.py**: Implementa a lógica principal para a execução do macro, focando nas missões.
+- **level0.py**: Contém funções comuns usadas por outros arquivos do macro, incluindo:
+  - `verificar_interrupcao()`: Verifica se a tecla 'ESC' foi pressionada para interromper o macro.
+  - `detectar_aspecto_na_tela(imagem_modelo, threshold=0.8)`: Detecta uma imagem específica na tela.
+  - `encontrar_imagem_e_clicar(imagem, descricao)`: Encontra uma imagem na tela e clica nela.
+  - `macro_leaving_mission()`: Executa uma sequência para sair de uma missão.
+  - `verificar_reconectar(imagem_condicao, descricao)`: Verifica uma condição especial na tela. Se a imagem for encontrada, clica nela e reinicia o processo.
+- **level1.py**: Implementa a lógica principal para a execução do macro, focando nas missões. Ele utiliza as funções do `level0.py` para realizar detecções e ações automatizadas.
 - **main.py**: O ponto de entrada do programa, onde a execução do macro é iniciada.
 
 Futuramente, planejamos adicionar os macros `level2`, `level3`, `level4`, `level5`, e `level6`.
@@ -18,7 +23,7 @@ Futuramente, planejamos adicionar os macros `level2`, `level3`, `level4`, `level
 
 O arquivo `level1.py`, responsável por automatizar as missões, ainda não está 100% completo. Na seleção de fases, não consegui incluir todas as opções. Enquanto isso, você pode ir até `data\level\level1` e trocar a imagem `m2` pela fase que deseja jogar. Recomendo o uso do Lightshot para capturar as imagens.
 
-exemplo:
+Exemplo:
 
 ![m2](https://github.com/user-attachments/assets/95392baf-6313-4640-bd8a-a125bf0ba589) ![m2b](https://github.com/user-attachments/assets/c02adeff-acad-41db-bda0-06ce5db8d23c) ![m2c](https://github.com/user-attachments/assets/a677a861-27c8-4d58-8e85-6d828d4b41ec)
 
@@ -50,13 +55,17 @@ No futuro, irei adicionar as funcionalidades para Missões, PvP, Boss, Raid, Exp
 	```bash
 	pip install opencv-python numpy pyautogui pygame pyinstaller
 	```
-2. compile o projeto em um unico arquivo:
+2. compile o projeto em um único arquivo:
 	```bash
 	pyinstaller --onefile --noconsole --icon=icon.ico --add-data "data;data" main.py
 	```
 	
 
 ## Contribuições
+
+fregues
+
+-------
 
 Sinta-se à vontade para contribuir! Abra um issue ou envie um pull request.
 
