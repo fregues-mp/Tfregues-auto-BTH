@@ -22,8 +22,9 @@ pygame.display.set_caption("Tfregues Macro_BTH")
 # Fonte para os textos
 font = pygame.font.Font(None, 36)
 
-# Variável de controle para parar o nível
+# Variáveis de controle
 should_stop = False
+macro_running = False  # Indica se o macro está em execução
 
 # Função para desenhar um botão com efeito de transparência
 def draw_button(text, rect, color, alpha):
@@ -52,12 +53,14 @@ def draw_button(text, rect, color, alpha):
 
 # Função para iniciar o level1
 def run_level1():
-    global should_stop
+    global macro_running
+    macro_running = True
     level1.run_level1()
+    macro_running = False  # Define como False quando o macro terminar
 
 # Loop principal
 def main():
-    global should_stop
+    global should_stop, macro_running
     start_alpha = 0
     stop_alpha = 0
     run_alpha = 0
@@ -74,11 +77,11 @@ def main():
                     current_screen = "game"
                 elif credits_button.collidepoint(pygame.mouse.get_pos()) and current_screen == "menu":
                     pass  # Função de créditos não implementada
-                elif start_button.collidepoint(pygame.mouse.get_pos()) and current_screen == "game":
+                elif start_button.collidepoint(pygame.mouse.get_pos()) and current_screen == "game" and not macro_running:
                     should_stop = False  # Reseta a variável
                     threading.Thread(target=run_level1).start()  # Inicia level1 em uma nova thread
-                elif stop_button.collidepoint(pygame.mouse.get_pos()) and current_screen == "game":
-                    should_stop = True  # Interrompe o processo
+                elif stop_button.collidepoint(pygame.mouse.get_pos()) and current_screen == "game" and macro_running:
+                    level0.stop_macro()  # Para o macro
 
         screen.fill(BLACK)
 
@@ -96,7 +99,9 @@ def main():
             start_button = pygame.Rect((WIDTH - button_width) // 2, 80, button_width, button_height)
             stop_button = pygame.Rect((WIDTH - button_width) // 2, 150, button_width, button_height)
 
-            start_alpha = draw_button("Start", start_button, RED, start_alpha)
+            # Desativa o botão Start se o macro já estiver rodando
+            if not macro_running:
+                start_alpha = draw_button("Start", start_button, RED, start_alpha)
             stop_alpha = draw_button("Stop", stop_button, RED, stop_alpha)
 
         pygame.display.flip()
