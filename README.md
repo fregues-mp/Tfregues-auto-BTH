@@ -46,6 +46,3 @@ Sinta-se à vontade para contribuir! Abra um issue ou envie um pull request.
 ## Licença
 
 Este projeto está licenciado sob a MIT License.
-
-
-pyinstaller --onefile --icon=icon.ico --add-data "data;data" main.py
