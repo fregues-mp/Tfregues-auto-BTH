@@ -1,4 +1,4 @@
-# _,-,_,-,_,-,_,-,_,-,_,-,_ MACRO DEFALT RULES _,-,_,-,_,-,_,-,_,-,_,-,_ #
+# _,-,_,-,_,-,_,-,_,-,_,-,_ MACRO BASE _,-,_,-,_,-,_,-,_,-,_,-,_ #
 import pyautogui
 import time
 import keyboard
@@ -42,6 +42,18 @@ def encontrar_imagem_e_clicar(imagem, descricao):
         print(f"'{descricao}' encontrada e clicada.")
         return True
     return False
+    
+def verificar_reconectar(imagem_condicao, descricao):
+    posicao, tamanho = detectar_aspecto_na_tela(imagem_condicao)
+    if posicao:
+        centro_x = posicao[0] + tamanho[1] // 2
+        centro_y = posicao[1] + tamanho[0] // 2
+        pyautogui.moveTo(centro_x, centro_y)
+        pyautogui.click()
+        print(f"'{descricao}' encontrada e clicada. Reiniciando o processo.")
+        return True
+    return False
+
 
 def macro_leaving_mission():
     print("Executando macro LEAVING MISSION...")
