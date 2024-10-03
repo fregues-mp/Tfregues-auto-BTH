@@ -1,4 +1,4 @@
-# _,-,_,-,_,-,_,-,_,-,_,-,_ GUI _,-,_,-,_,-,_,-,_,-,_,-,_ #
+# _,-,_,-,_,-,_,-,_,-,_,-,_ GUI||MAIN _,-,_,-,_,-,_,-,_,-,_,-,_ #
 import level0
 import level1
 import pygame
@@ -48,29 +48,42 @@ def draw_button(text, rect, color, hover_color, alpha):
 
 # Loop principal
 def main():
-    run_alpha = 0  # Opacidade inicial do botão Play
-    credits_alpha = 0  # Opacidade inicial do botão Credits
+    run_alpha = 0  # Opacidade inicial do botão Start
+    credits_alpha = 0  # Opacidade inicial do botão Stop
+    current_screen = "menu"  # Tela inicial
 
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if run_button.collidepoint(pygame.mouse.get_pos()):
+                    current_screen = "game"  # Vai para outra tela ao clicar em "Start"
+                    level1.level1()  # Chama o script do level1
 
         screen.fill(BLACK)
 
-        # Botões
-        button_width, button_height = 140, 50
-        run_button = pygame.Rect((WIDTH - button_width) // 2, 80, button_width, button_height)
-        credits_button = pygame.Rect((WIDTH - button_width) // 2, 150, button_width, button_height)
+        if current_screen == "menu":
+            button_width, button_height = 140, 50
+            run_button = pygame.Rect((WIDTH - button_width) // 2, 80, button_width, button_height)
+            credits_button = pygame.Rect((WIDTH - button_width) // 2, 150, button_width, button_height)
 
-        # Desenha os botões
-        run_alpha = draw_button("Run", run_button, RED, GREY, run_alpha)
-        credits_alpha = draw_button("Credits", credits_button, RED, GREY, credits_alpha)
+            run_alpha = draw_button("Run", run_button, RED, GREY, run_alpha)
+            credits_alpha = draw_button("Credits", credits_button, RED, GREY, credits_alpha)
 
-        # Atualiza a tela
+        elif current_screen == "game":
+            screen.fill(BLACK)  # Fundo preto
+
+            # Botões na mesma posição que o anterior
+            button1 = pygame.Rect((WIDTH - button_width) // 2, 80, button_width, button_height)
+            button2 = pygame.Rect((WIDTH - button_width) // 2, 150, button_width, button_height)
+
+            # Desenha os novos botões com efeito de transparência
+            run_alpha = draw_button("Start", button1, RED, GREY, run_alpha)
+            credits_alpha = draw_button("Stop", button2, RED, GREY, credits_alpha)
+
         pygame.display.flip()
 
 if __name__ == "__main__":
     main()
-    pass
