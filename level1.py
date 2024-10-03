@@ -23,9 +23,9 @@ log_file = open(caminho_log, 'a')
 def log(msg):
     print(msg)
     log_file.write(msg + '\n')
-
-def level1():
-    while True:
+    
+def level1(should_stop):
+    while not should_stop:
         if level0.verificar_interrupcao():
             break
 
@@ -34,8 +34,8 @@ def level1():
         # Encontrar Imagem 1
         while not level0.encontrar_imagem_e_clicar(r'data\level\level1\m1.png', 'Imagem 1'):
             if level0.verificar_reconectar(r'data\level\level1\server_down.png', 'Server Down'):
-                log("'Server Down' encontrada. Reiniciando o ciclo.")
-                break  # Reiniciar o ciclo
+                log("'Server Down' encontrada. Reiniciando o ciclo do início.")
+                continue  # Reiniciar o ciclo desde o ponto 1
             if level0.verificar_interrupcao():
                 return
             log("Imagem 1 não encontrada. Tentando novamente...")
@@ -44,8 +44,8 @@ def level1():
         # Encontrar Imagem 2
         while not level0.encontrar_imagem_e_clicar(r'data\level\level1\m2.png', 'Imagem 2'):
             if level0.verificar_reconectar(r'data\level\level1\server_down.png', 'Server Down'):
-                log("'Server Down' encontrada. Reiniciando o ciclo.")
-                break
+                log("'Server Down' encontrada. Reiniciando o ciclo do início.")
+                continue
             if level0.verificar_interrupcao():
                 return
             log("Imagem 2 não encontrada. Tentando novamente...")
@@ -54,8 +54,8 @@ def level1():
         # Encontrar Imagem 3
         while not level0.encontrar_imagem_e_clicar(r'data\level\level1\m3.png', 'Imagem 3'):
             if level0.verificar_reconectar(r'data\level\level1\server_down.png', 'Server Down'):
-                log("'Server Down' encontrada. Reiniciando o ciclo.")
-                break
+                log("'Server Down' encontrada. Reiniciando o ciclo do início.")
+                continue
             if level0.verificar_interrupcao():
                 return
             log("Imagem 3 não encontrada. Tentando novamente...")
@@ -65,8 +65,8 @@ def level1():
         log("Procurando por Imagem 4a...")
         while not level0.encontrar_imagem_e_clicar(r'data\level\level1\m4a.png', 'Imagem 4a'):
             if level0.verificar_reconectar(r'data\level\level1\server_down.png', 'Server Down'):
-                log("'Server Down' encontrada. Reiniciando o ciclo.")
-                break
+                log("'Server Down' encontrada. Reiniciando o ciclo do início.")
+                continue
             if level0.verificar_interrupcao():
                 return
             log("Imagem 4a não encontrada. Tentando novamente...")
@@ -76,8 +76,8 @@ def level1():
         log("Procurando por Imagem 4b...")
         for _ in range(15):
             if level0.verificar_reconectar(r'data\level\level1\server_down.png', 'Server Down'):
-                log("'Server Down' encontrada. Reiniciando o ciclo.")
-                break
+                log("'Server Down' encontrada. Reiniciando o ciclo do início.")
+                continue
             if level0.verificar_interrupcao():
                 return
             if level0.encontrar_imagem_e_clicar(r'data\level\level1\m4b.png', 'Imagem 4b'):
@@ -88,13 +88,13 @@ def level1():
         # Encontrar Imagem 5a e 5b
         while True:
             if level0.verificar_reconectar(r'data\level\level1\server_down.png', 'Server Down'):
-                log("'Server Down' encontrada. Reiniciando o ciclo.")
-                break
+                log("'Server Down' encontrada. Reiniciando o ciclo do início.")
+                continue
             log("Procurando por Imagem 5a...")
             while not level0.encontrar_imagem_e_clicar(r'data\level\level1\m5a.png', 'Imagem 5a'):
                 if level0.verificar_reconectar(r'data\level\level1\server_down.png', 'Server Down'):
-                    log("'Server Down' encontrada. Reiniciando o ciclo.")
-                    break
+                    log("'Server Down' encontrada. Reiniciando o ciclo do início.")
+                    continue
                 if level0.verificar_interrupcao():
                     return
                 log("Imagem 5a não encontrada. Tentando novamente...")
@@ -104,8 +104,8 @@ def level1():
             encontrada_5b = False
             for _ in range(30):
                 if level0.verificar_reconectar(r'data\level\level1\server_down.png', 'Server Down'):
-                    log("'Server Down' encontrada. Reiniciando o ciclo.")
-                    break
+                    log("'Server Down' encontrada. Reiniciando o ciclo do início.")
+                    continue
                 if level0.verificar_interrupcao():
                     return
                 if level0.encontrar_imagem_e_clicar(r'data\level\level1\m5b.png', 'Imagem 5b'):
