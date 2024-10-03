@@ -47,7 +47,7 @@ No momento, o macro está configurado apenas para missões, mas estou desenvolve
 	```
 2. compile o projeto em um unico arquivo:
 	```bash
-	pyinstaller --onefile --icon=icon.ico --add-data "data;data" main.py
+	pyinstaller --onefile --noconsole --icon=icon.ico --add-data "data;data" main.py
 	```
 	
 
