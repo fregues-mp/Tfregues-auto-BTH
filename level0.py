@@ -6,23 +6,22 @@ import cv2
 import numpy as np
 import threading
 
-# Variável para controle do macro
-stop_macro_event = threading.Event()
+parar = False
 
 def stop_macro():
+    global parar
     print("Parando o macro...")
-    stop_macro_event.set()  # Define o evento, sinalizando para o macro parar
+    parar = True
     
 def verificar_interrupcao():
-    """Verifica se a tecla 'esc' foi pressionada."""
+    # Verifica se a tecla 'esc' foi pressionada.
     if keyboard.is_pressed('esc'):
         print("Macro interrompida pelo usuário.")
         return True
-    return False
-    
+    return False 
 
 def detectar_aspecto_na_tela(imagem_modelo, threshold=0.8):
-    """Detecta a presença de uma imagem modelo na tela."""
+    # Detecta a presença de uma imagem modelo na tela.
     screenshot = pyautogui.screenshot()
     screenshot = np.array(screenshot)
     screenshot = cv2.cvtColor(screenshot, cv2.COLOR_RGB2BGR)
@@ -43,7 +42,7 @@ def detectar_aspecto_na_tela(imagem_modelo, threshold=0.8):
     return None, None
 
 def encontrar_imagem_e_clicar(imagem, descricao):
-    """Encontra uma imagem na tela e clica nela."""
+    # Encontra uma imagem na tela e clica nela.
     posicao, tamanho = detectar_aspecto_na_tela(imagem)
     if posicao:
         centro_x = posicao[0] + tamanho[1] // 2
@@ -55,7 +54,7 @@ def encontrar_imagem_e_clicar(imagem, descricao):
     return False
 
 def verificar_reconectar(imagem_condicao, descricao):
-    """Verifica a condição de reconexão e clica se a imagem for encontrada."""
+    # Verifica a condição de reconexão e clica se a imagem for encontrada.
     posicao, tamanho = detectar_aspecto_na_tela(imagem_condicao)
     if posicao:
         centro_x = posicao[0] + tamanho[1] // 2
@@ -67,7 +66,7 @@ def verificar_reconectar(imagem_condicao, descricao):
     return False
 
 def macro_leaving_mission():
-    """Executa a macro para deixar a missão."""
+    # Executa a macro para deixar a missão.
     print("Executando macro LEAVING MISSION...")
     for _ in range(4):
         pyautogui.press('esc')
