@@ -4,13 +4,22 @@ import time
 import keyboard
 import cv2
 import numpy as np
+import threading
 
+# Variável para controle do macro
+stop_macro_event = threading.Event()
+
+def stop_macro():
+    print("Parando o macro...")
+    stop_macro_event.set()  # Define o evento, sinalizando para o macro parar
+    
 def verificar_interrupcao():
     """Verifica se a tecla 'esc' foi pressionada."""
     if keyboard.is_pressed('esc'):
         print("Macro interrompida pelo usuário.")
         return True
     return False
+    
 
 def detectar_aspecto_na_tela(imagem_modelo, threshold=0.8):
     """Detecta a presença de uma imagem modelo na tela."""
