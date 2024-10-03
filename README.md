@@ -19,7 +19,7 @@ Futuramente, planejamos adicionar os macros `level2`, `level3`, `level4`, `level
 O arquivo `level1.py`, responsável por automatizar as missões, ainda não está 100% completo. Na seleção de fases, não consegui incluir todas as opções. Enquanto isso, você pode ir até `data\level\level1` e trocar a imagem `m2` pela fase que deseja jogar. Recomendo o uso do Lightshot para capturar as imagens.
 exemplo:
 
-![m2](https://github.com/user-attachments/assets/95392baf-6313-4640-bd8a-a125bf0ba589) or ![m2b](https://github.com/user-attachments/assets/c02adeff-acad-41db-bda0-06ce5db8d23c) ou ![m2c](https://github.com/user-attachments/assets/a677a861-27c8-4d58-8e85-6d828d4b41ec)
+![m2](https://github.com/user-attachments/assets/95392baf-6313-4640-bd8a-a125bf0ba589) ![m2b](https://github.com/user-attachments/assets/c02adeff-acad-41db-bda0-06ce5db8d23c) ![m2c](https://github.com/user-attachments/assets/a677a861-27c8-4d58-8e85-6d828d4b41ec)
 
 No momento, o macro está configurado apenas para missões, mas estou desenvolvendo uma interface gráfica (GUI) usando a biblioteca Pygame. No futuro, planejo adicionar funcionalidades para Missões, PvP, Boss, Raid, Expedição, Coliseu e Pesca.
 
