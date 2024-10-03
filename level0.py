@@ -9,6 +9,7 @@ import threading
 parar = False
 
 def stop_macro():
+    # Para o macro pela GUI
     global parar
     print("Parando o macro...")
     parar = True
