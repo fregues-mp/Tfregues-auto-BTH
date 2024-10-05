@@ -1,10 +1,7 @@
 # _,-,_,-,_,-,_,-,_,-,_,-,_ MACRO TO RUN MISSION _,-,_,-,_,-,_,-,_,-,_,-,_ #
 import os
-import pyautogui
 import time
-import keyboard
-import numpy as np
-import cv2
+import pyautogui
 from datetime import datetime
 import level0
 
@@ -27,6 +24,7 @@ def log(msg):
 def run_level1():
     global parar
     level0.parar = False
+    
     if level0.verificar_interrupcao():
         return
     if level0.parar == True:
@@ -85,7 +83,7 @@ def run_level1():
 
     # Encontrar Imagem 4b
     log("Procurando por Imagem 4b...")
-    for _ in range(15):
+    for _ in range(1):
         if level0.verificar_reconectar(r'data\level\level1\server_down.png', 'Server Down'):
             log("'Server Down' encontrada. Reiniciando o ciclo do início.")
             continue
@@ -117,7 +115,7 @@ def run_level1():
 
         log("Procurando por Imagem 5b...")
         encontrada_5b = False
-        for _ in range(30):
+        for _ in range(1):
             if level0.verificar_reconectar(r'data\level\level1\server_down.png', 'Server Down'):
                 log("'Server Down' encontrada. Reiniciando o ciclo do início.")
                 continue
