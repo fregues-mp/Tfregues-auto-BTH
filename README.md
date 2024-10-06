@@ -29,7 +29,7 @@ Atualmente o macro só foi testado na resolução 800x480, então talvez não fu
 
 Apenas suportado no Idioma PT BR, futuramente irei adicionar suporte para o Inglês. 
 
-O arquivo `level1.py`, que é responsável por automatizar as missões, ainda não está 100% completo. Na seleção de fases, não consegui incluir todas as opções. Enquanto isso, você pode ir até `data\level\level1` e trocar a imagem `m2` pela fase que deseja jogar. Recomendo o uso do Lightshot para capturar as imagens.
+O arquivo `level1.py`, que é responsável por automatizar as missões, ainda não está 100% completo. Na seleção de fases, não consegui incluir todas as opções. Enquanto isso, você pode ir até `data\level\level1` e trocar a imagem `m2` pela fase que deseja jogar. Recomendo o uso do [Lightshot](https://app.prntscr.com/pt-br/download.html) para capturar as imagens.
 
 Exemplo:
 
