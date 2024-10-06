@@ -27,7 +27,7 @@ def run_level1():
     
     if level0.verificar_interrupcao():
         return
-    if level0.parar == True:
+    if level0.parar:
         return
 
     log("Iniciando sequência...")
@@ -39,7 +39,7 @@ def run_level1():
             continue
         if level0.verificar_interrupcao():
             return
-        if level0.parar == True:
+        if level0.parar:
             return
         log("Imagem 1 não encontrada. Tentando novamente...")
         time.sleep(1)
@@ -51,22 +51,28 @@ def run_level1():
             continue
         if level0.verificar_interrupcao():
             return
-        if level0.parar == True:
+        if level0.parar:
             return
         log("Imagem 2 não encontrada. Tentando novamente...")
         time.sleep(1)
 
     # Encontrar Imagem 3
-    while not level0.encontrar_imagem_e_clicar(r'data\level\level1\m3.png', 'Imagem 3'):
-        if level0.verificar_reconectar(r'data\level\level1\server_down.png', 'Server Down'):
+    while True:
+        if level0.encontrar_imagem_e_clicar(r'data\level\level1\m3.png', 'Imagem 3'):
+            break  # Se a imagem 3 for encontrada, saia do loop
+        elif level0.encontrar_imagem_e_clicar(r'data\level\level1\m3v2.png', 'Imagem 3v2'):
+            log("Imagem 3v2 encontrada. Continuando...")
+            break  # Se a imagem 3v2 for encontrada, saia do loop
+        elif level0.verificar_reconectar(r'data\level\level1\server_down.png', 'Server Down'):
             log("'Server Down' encontrada. Reiniciando o ciclo do início.")
-            continue
-        if level0.verificar_interrupcao():
-            return
-        if level0.parar == True:
-            return
+            continue  # Reinicie o ciclo se o servidor estiver fora
+        elif level0.verificar_interrupcao():
+            return  # Saia da função se uma interrupção for verificada
+        elif level0.parar:
+            return  # Saia da função se o macro estiver configurado para parar
+        
         log("Imagem 3 não encontrada. Tentando novamente...")
-        time.sleep(1)
+        time.sleep(1)  # Aguarde um segundo antes de tentar novamente
 
     # Encontrar Imagem 4a
     log("Procurando por Imagem 4a...")
@@ -76,7 +82,7 @@ def run_level1():
             continue
         if level0.verificar_interrupcao():
             return
-        if level0.parar == True:
+        if level0.parar:
             return
         log("Imagem 4a não encontrada. Tentando novamente...")
         time.sleep(1)
@@ -89,7 +95,7 @@ def run_level1():
             continue
         if level0.verificar_interrupcao():
             return
-        if level0.parar == True:
+        if level0.parar:
             return
         if level0.encontrar_imagem_e_clicar(r'data\level\level1\m4b.png', 'Imagem 4b'):
             log("Imagem 4b encontrada. Executando macro LEAVING MISSION.")
@@ -108,7 +114,7 @@ def run_level1():
                 continue
             if level0.verificar_interrupcao():
                 return
-            if level0.parar == True:
+            if level0.parar:
                 return
             log("Imagem 5a não encontrada. Tentando novamente...")
             time.sleep(1)
@@ -121,7 +127,7 @@ def run_level1():
                 continue
             if level0.verificar_interrupcao():
                 return
-            if level0.parar == True:
+            if level0.parar:
                 return
             if level0.encontrar_imagem_e_clicar(r'data\level\level1\m5b.png', 'Imagem 5b'):
                 log("Imagem 5b encontrada. Clicando ESC uma vez.")
