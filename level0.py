@@ -1,10 +1,30 @@
 # _,-,_,-,_,-,_,-,_,-,_,-,_ MACRO DEFAULT RULES _,-,_,-,_,-,_,-,_,-,_,-,_ #
+import os
 import pyautogui
 import time
+from datetime import datetime
 import keyboard
 import cv2
 import numpy as np
 import threading
+
+# Criação do diretório de logs, se não existir
+log_dir = r'data\logs'
+os.makedirs(log_dir, exist_ok=True)
+
+# Nome do arquivo de log com data
+data_atual = datetime.now().strftime("%d-%m-%Y")
+nome_arquivo_log = f'LOG_{data_atual}.txt'
+caminho_log = os.path.join(log_dir, nome_arquivo_log)
+
+# Redirecionar a saída padrão para o arquivo de log
+log_file = open(caminho_log, 'a')
+
+def log(msg, level='INFO'):
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    log_message = f"[{timestamp}] [{level}] {msg}"
+    print(log_message)
+    log_file.write(log_message + '\n')
 
 parar = False
 
