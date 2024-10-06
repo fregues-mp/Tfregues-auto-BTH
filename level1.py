@@ -41,6 +41,7 @@ def run_level1():
     # Encontrar Imagem 3
     while True:
         if level0.encontrar_imagem_e_clicar(r'data\level\level1\m3.png', 'Imagem 3'):
+            level0.log("Imagem 3 encontrada. Continuando...", level='INFO')
             break
         elif level0.encontrar_imagem_e_clicar(r'data\level\level1\m3v2.png', 'Imagem 3v2'):
             level0.log("Imagem 3v2 encontrada. Continuando...", level='INFO')
