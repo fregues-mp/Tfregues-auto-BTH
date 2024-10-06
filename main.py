@@ -5,7 +5,6 @@ import pygame
 import sys
 import threading
 
-# Inicializa o Pygame
 pygame.init()
 
 # Definindo cores
@@ -19,13 +18,17 @@ WIDTH, HEIGHT = 420, 280
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Tfregues Macro_BTH")
 
+# Carrega e define o ícone
+icone = pygame.image.load('icon.ico')
+pygame.display.set_icon(icone)
+
 # Fonte para os textos
 font = pygame.font.Font(None, 36)
-version_font = pygame.font.Font(None, 18)  # Fonte menor para a versão
+version_font = pygame.font.Font(None, 18)
 
 # Variáveis de controle
 should_stop = False
-macro_running = False  # Indica se o macro está em execução
+macro_running = False
 
 # Versão do programa
 program_version = "Versão 1.0.0"
@@ -91,7 +94,6 @@ def main():
     global should_stop, macro_running
     start_alpha = 0
     stop_alpha = 0
-    run_alpha = 0
     credits_alpha = 0
     current_screen = "menu"
 
@@ -119,22 +121,18 @@ def main():
                 elif stop_button.collidepoint(mouse_pos) and current_screen == "game" and macro_running:
                     level0.stop_macro()  # Para o macro
                     level0.log('Macro parado com sucesso.')
-                elif version_rect.collidepoint(mouse_pos):  # Verifica se a versão foi clicada
-                    current_screen = "updates"  # Muda para a tela de atualizações
 
         screen.fill(BLACK)
 
         if current_screen == "menu":
-            run_alpha = draw_button("Run", run_button, RED, run_alpha)
-            credits_alpha = draw_button("Credits", credits_button, RED, credits_alpha)
+            draw_button("Run", run_button, RED, start_alpha)
+            draw_button("Credits", credits_button, RED, credits_alpha)
 
         elif current_screen == "game":
             screen.fill(BLACK)  # Fundo preto
-
-            # Desativa o botão Start se o macro já estiver rodando
             if not macro_running:
-                start_alpha = draw_button("Start", start_button, RED, start_alpha)
-            stop_alpha = draw_button("Stop", stop_button, RED, stop_alpha)
+                draw_button("Start", start_button, RED, start_alpha)
+            draw_button("Stop", stop_button, RED, stop_alpha)
 
         # Desenha a versão do programa no canto inferior direito
         version_surface = version_font.render(program_version, True, WHITE)  # Usa a fonte menor
