@@ -31,7 +31,7 @@ should_stop = False
 macro_running = False
 
 # Versão do programa
-program_version = "Versão 1.0.0"
+program_version = "Versão 1.6.13"
 
 # Função para desenhar um botão com efeito de transparência
 def draw_button(text, rect, color, alpha):
