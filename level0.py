@@ -6,7 +6,6 @@ from datetime import datetime
 import keyboard
 import cv2
 import numpy as np
-import threading
 
 # Criação do diretório de logs, se não existir
 log_dir = r'data\logs'
