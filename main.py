@@ -19,10 +19,6 @@ WIDTH, HEIGHT = 420, 280
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Tfregues Macro_BTH")
 
-# Carregar e definir o ícone
-icon = pygame.image.load('icon.png')  # Carregue a imagem do ícone
-pygame.display.set_icon(icon)  # Defina o ícone da janela
-
 # Fonte para os textos
 font = pygame.font.Font(None, 36)
 version_font = pygame.font.Font(None, 18)  # Fonte menor para a versão
@@ -122,6 +118,7 @@ def main():
                     threading.Thread(target=run_level1).start()  # Inicia level1 em uma nova thread
                 elif stop_button.collidepoint(mouse_pos) and current_screen == "game" and macro_running:
                     level0.stop_macro()  # Para o macro
+                    level0.log('Macro parado com sucesso.')
                 elif version_rect.collidepoint(mouse_pos):  # Verifica se a versão foi clicada
                     current_screen = "updates"  # Muda para a tela de atualizações
 
