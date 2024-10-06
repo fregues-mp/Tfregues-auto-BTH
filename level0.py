@@ -2,6 +2,7 @@
 import os
 import pyautogui
 import time
+import sys
 from datetime import datetime
 import keyboard
 import cv2
@@ -29,12 +30,12 @@ parar = False
 
 def stop_macro():    # Para o macro pela GUI
     global parar
-    print("Parando o macro...")
+    log("Parando o macro...", level='INFO')
     parar = True
     
 def verificar_interrupcao():    # Verifica se a tecla 'esc' foi pressionada.
     if keyboard.is_pressed('esc'):
-        print("Macro interrompida pelo usuário.")
+        log("Macro interrompida pelo usuário.", level='INFO')
         return True
     return False 
 

@@ -19,7 +19,7 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Tfregues Macro_BTH")
 
 # Carrega e define o ícone
-icone = pygame.image.load('icon.ico')
+icone = pygame.image.load('icon.png')
 pygame.display.set_icon(icone)
 
 # Fonte para os textos
@@ -38,11 +38,11 @@ def draw_button(text, rect, color, alpha):
     mouse = pygame.mouse.get_pos()
     is_hover = rect.collidepoint(mouse)
 
-    # Atualiza a opacidade do botão
+    # Ajuste da transparência para ser mais perceptível
     if is_hover:
-        alpha = min(255, alpha + 5)  # Aumenta a opacidade
+        alpha = min(255, alpha + 3)  # Aumenta a opacidade mais rápido
     else:
-        alpha = max(0, alpha - 5)     # Diminui a opacidade
+        alpha = max(0, alpha - 5)   # Diminui a opacidade mais lentamente, mínimo de 30 para visibilidade
 
     # Cria uma superfície para o botão com o fundo transparente
     button_surface = pygame.Surface(rect.size, pygame.SRCALPHA)
@@ -63,31 +63,7 @@ def run_level1():
     global macro_running
     macro_running = True
     level1.run_level1()
-    macro_running = False  # Define como False quando o macro terminar
-
-# Função para mostrar a tela de atualizações
-def show_updates():
-    screen.fill(BLACK)  # Limpa a tela
-    updates_text = font.render("Tela de Atualizações", True, WHITE)
-    updates_rect = updates_text.get_rect(center=(WIDTH // 2, HEIGHT // 2 - 20))
-    screen.blit(updates_text, updates_rect)
-
-    # Desenha o botão "Exit" no canto inferior direito
-    exit_button = pygame.Rect(WIDTH - 140, HEIGHT - 50, 140, 50)
-    exit_alpha = draw_button("Exit", exit_button, RED, 0)  # Botão Exit
-
-    # Aguarda até que a tela seja fechada
-    waiting = True
-    while waiting:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                sys.exit()
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                if exit_button.collidepoint(pygame.mouse.get_pos()):  # Verifica se o botão Exit foi clicado
-                    waiting = False
-
-        pygame.display.flip()
+    macro_running = False
 
 # Loop principal
 def main():
@@ -113,36 +89,30 @@ def main():
                 mouse_pos = pygame.mouse.get_pos()
                 if run_button.collidepoint(mouse_pos) and current_screen == "menu":
                     current_screen = "game"
-                elif credits_button.collidepoint(mouse_pos) and current_screen == "menu":
-                    pass  # Função de créditos não implementada
                 elif start_button.collidepoint(mouse_pos) and current_screen == "game" and not macro_running:
                     should_stop = False  # Reseta a variável
                     threading.Thread(target=run_level1).start()  # Inicia level1 em uma nova thread
                 elif stop_button.collidepoint(mouse_pos) and current_screen == "game" and macro_running:
                     level0.stop_macro()  # Para o macro
-                    level0.log('Macro parado com sucesso.')
+                    while not macro_running:
+                        level0.log('Macro parado com sucesso.')
 
         screen.fill(BLACK)
 
         if current_screen == "menu":
-            draw_button("Run", run_button, RED, start_alpha)
-            draw_button("Credits", credits_button, RED, credits_alpha)
+            start_alpha = draw_button("Run", run_button, RED, start_alpha)
+            credits_alpha = draw_button("Credits", credits_button, RED, credits_alpha)
 
         elif current_screen == "game":
             screen.fill(BLACK)  # Fundo preto
             if not macro_running:
-                draw_button("Start", start_button, RED, start_alpha)
-            draw_button("Stop", stop_button, RED, stop_alpha)
+                start_alpha = draw_button("Start", start_button, RED, start_alpha)
+            stop_alpha = draw_button("Stop", stop_button, RED, stop_alpha)
 
         # Desenha a versão do programa no canto inferior direito
         version_surface = version_font.render(program_version, True, WHITE)  # Usa a fonte menor
         version_rect = version_surface.get_rect(bottomright=(WIDTH - 10, HEIGHT - 10))
         screen.blit(version_surface, version_rect)
-
-        # Exibe a tela de atualizações se necessário
-        if current_screen == "updates":
-            show_updates()
-            current_screen = "menu"  # Retorna ao menu após mostrar as atualizações
 
         pygame.display.flip()
 

@@ -1,0 +1,104 @@
+[2024-10-06 15:59:06] [INFO] Macro parado com sucesso.
+[2024-10-06 16:02:50] [INFO] Iniciando sequência...
+[2024-10-06 16:02:54] [INFO] Imagem 1 não encontrada.
+Tentando novamente...({contador})
+[2024-10-06 16:02:57] [INFO] Imagem 1 não encontrada.
+Tentando novamente...({contador})
+[2024-10-06 16:03:01] [INFO] Imagem 1 não encontrada.
+Tentando novamente...({contador})
+[2024-10-06 16:03:05] [INFO] Imagem 1 não encontrada.
+Tentando novamente...({contador})
+[2024-10-06 16:03:15] [INFO] Imagem 1 não encontrada.
+Tentando novamente...({contador})
+[2024-10-06 16:03:22] [INFO] Imagem 1 não encontrada.
+Tentando novamente...({contador})
+[2024-10-06 16:03:31] [INFO] Imagem 1 não encontrada.
+Tentando novamente...({contador})
+[2024-10-06 16:03:39] [INFO] Imagem 1 não encontrada.
+Tentando novamente...({contador})
+[2024-10-06 16:03:44] [INFO] Imagem 1 não encontrada.
+Tentando novamente...({contador})
+[2024-10-06 16:03:49] [INFO] Imagem 1 não encontrada.
+Tentando novamente...({contador})
+[2024-10-06 16:03:54] [INFO] Imagem 1 não encontrada.
+Tentando novamente...({contador})
+[2024-10-06 16:04:00] [INFO] Imagem 1 não encontrada.
+Tentando novamente...({contador})
+[2024-10-06 16:04:06] [INFO] Imagem 1 não encontrada.
+Tentando novamente...({contador})
+[2024-10-06 16:04:11] [INFO] Imagem 1 não encontrada.
+Tentando novamente...({contador})
+[2024-10-06 16:04:16] [INFO] Imagem 1 não encontrada.
+Tentando novamente...({contador})
+[2024-10-06 16:04:27] [INFO] Imagem 1 não encontrada.
+Tentando novamente...({contador})
+[2024-10-06 16:04:48] [INFO] Imagem 1 não encontrada.
+Tentando novamente...({contador})
+[2024-10-06 16:05:05] [INFO] Imagem 1 não encontrada.
+Tentando novamente...({contador})
+[2024-10-06 16:05:21] [INFO] Imagem 1 não encontrada.
+Tentando novamente...({contador})
+[2024-10-06 16:05:32] [INFO] Imagem 1 não encontrada.
+Tentando novamente...({contador})
+[2024-10-06 16:05:43] [INFO] Imagem 1 não encontrada.
+Tentando novamente...({contador})
+[2024-10-06 16:06:03] [INFO] Imagem 1 não encontrada.
+Tentando novamente...({contador})
+[2024-10-06 16:06:10] [INFO] Imagem 1 não encontrada.
+Tentando novamente...({contador})
+[2024-10-06 16:06:27] [INFO] Imagem 1 não encontrada.
+Tentando novamente...({contador})
+[2024-10-06 16:06:47] [INFO] Imagem 1 não encontrada.
+Tentando novamente...({contador})
+[2024-10-06 16:06:56] [INFO] Imagem 1 não encontrada.
+Tentando novamente...({contador})
+[2024-10-06 16:07:09] [INFO] Imagem 1 não encontrada.
+Tentando novamente...({contador})
+[2024-10-06 16:07:29] [INFO] Imagem 1 não encontrada.
+Tentando novamente...({contador})
+[2024-10-06 16:07:50] [INFO] Imagem 1 não encontrada.
+Tentando novamente...({contador})
+[2024-10-06 16:08:35] [INFO] Imagem 1 não encontrada.
+Tentando novamente...({contador})
+[2024-10-06 16:08:39] [INFO] Parando o macro...
+[2024-10-06 16:08:39] [INFO] Macro parado com sucesso.
+[2024-10-06 16:17:09] [INFO] Iniciando sequência...
+[2024-10-06 16:17:24] [INFO] Imagem 1 não encontrada.
+Tentando novamente...(0)
+[2024-10-06 16:18:05] [INFO] Imagem 2 não encontrada.
+Tentando novamente...(0)
+[2024-10-06 16:18:32] [INFO] Imagem 2 não encontrada.
+Tentando novamente...(1)
+[2024-10-06 16:18:39] [INFO] Imagem 2 não encontrada.
+Tentando novamente...(2)
+[2024-10-06 16:18:48] [INFO] Parando o macro...
+[2024-10-06 16:18:48] [INFO] Macro parado com sucesso.
+[2024-10-06 16:22:43] [INFO] Iniciando sequência...
+[2024-10-06 16:22:46] [INFO] Imagem 1 não encontrada.
+Tentando novamente...(0)
+[2024-10-06 16:22:48] [INFO] Imagem 1 não encontrada.
+Tentando novamente...(1)
+[2024-10-06 16:22:51] [INFO] Imagem 1 não encontrada.
+Tentando novamente...(2)
+[2024-10-06 16:22:53] [INFO] Imagem 1 não encontrada.
+Tentando novamente...(3)
+[2024-10-06 16:22:56] [INFO] Imagem 1 não encontrada.
+Tentando novamente...(4)
+[2024-10-06 16:22:58] [INFO] Imagem 1 não encontrada.
+Tentando novamente...(5)
+[2024-10-06 16:23:01] [INFO] Imagem 1 não encontrada.
+Tentando novamente...(6)
+[2024-10-06 16:23:06] [INFO] Imagem 1 não encontrada.
+Tentando novamente...(7)
+[2024-10-06 16:23:16] [INFO] Imagem 2 não encontrada.
+Tentando novamente...(0)
+[2024-10-06 16:23:22] [INFO] Imagem 2 não encontrada.
+Tentando novamente...(1)
+[2024-10-06 16:23:30] [INFO] Imagem 2 não encontrada.
+Tentando novamente...(2)
+[2024-10-06 16:23:37] [INFO] Imagem 2 não encontrada.
+Tentando novamente...(3)
+[2024-10-06 16:23:48] [INFO] Imagem 2 não encontrada.
+Tentando novamente...(4)
+[2024-10-06 16:23:48] [INFO] Parando o macro...
+[2024-10-06 16:23:48] [INFO] Macro parado com sucesso.

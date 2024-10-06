@@ -5,7 +5,7 @@ import subprocess
 def compilar():
     # Nome do script principal
     script_principal = 'main.py'
-    arquivo_icon = 'icon.ico'
+    arquivo_icon = 'icon.png'
 
     # Criação do executável usando PyInstaller
     subprocess.run(['pyinstaller', '--onefile', '--icon=' + arquivo_icon, script_principal])
