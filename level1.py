@@ -132,7 +132,6 @@ def run_level1():
         else:
             break
 
-run_level1()
 
 
 if __name__ == "__main__":
