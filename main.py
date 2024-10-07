@@ -40,9 +40,9 @@ def draw_button(text, rect, color, alpha):
 
     # Ajuste da transparência para ser mais perceptível
     if is_hover:
-        alpha = min(255, alpha + 3)  # Aumenta a opacidade mais rápido
+        alpha = min(255, alpha + 3)  # Aumenta a opacidade
     else:
-        alpha = max(0, alpha - 5)   # Diminui a opacidade mais lentamente, mínimo de 30 para visibilidade
+        alpha = max(0, alpha - 5)   # Diminui a opacidade
 
     # Cria uma superfície para o botão com o fundo transparente
     button_surface = pygame.Surface(rect.size, pygame.SRCALPHA)
