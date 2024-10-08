@@ -102,7 +102,7 @@ def run_level1():
         while not level0.encontrar_imagem_e_clicar(r'data\level\level1\m5a.png', 'Imagem 5a'):
             if level0.verificar_reconectar(r'data\server_down.png', 'Server Down'):
                 level0.log("'Server Down' encontrada.\nReiniciando o ciclo do início.", level='WARNING')
-                return
+                return True
             if level0.verificar_interrupcao():
                 return
             if level0.parar:
