@@ -38,7 +38,7 @@ def run_level2():
             return
         if level0.parar:
             return
-        level0.log("Imagem 1 não encontrada.\nTentando nomamente...({contador})", level='INFO')
+        level0.log(f"Imagem 1 não encontrada.\nTentando nomamente...({contador})", level='INFO')
         time.sleep(1)
         
         contador += 1
